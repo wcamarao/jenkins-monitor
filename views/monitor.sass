@@ -1,2 +1,84 @@
+$red: #C22222
+$green: #228B22
+$orange: #FF8300
+$white: #DDD
+$black: #111
+$amount: 10%
+
+@font-face
+  font-family: 'Cantarell'
+  font-style: normal
+  font-weight: normal
+  src: local('Cantarell Regular'), local('Cantarell-Regular'), url('/fonts/Cantarell.woff') format('woff')
+
+*
+  font-family: 'Cantarell', sans-serif
+  outline: none
+
 body
-  background: black
+  background: $black
+  color: $white
+  margin: 0
+
+section
+  float: left
+  border: 2px solid $black
+  margin: -2px
+  padding: 100px 0
+  width: 50%
+  span.status
+    float: right
+
+section.building
+  background-color: $orange
+  -webkit-animation: building_animation 1s infinite
+
+@-webkit-keyframes building_animation
+  0%
+    background-color: darken($orange, $amount)
+  50%
+    background-color: $orange
+  100%
+    background-color: darken($orange, $amount)
+
+@mixin section($color)
+  background-color: $color
+  background-image: -webkit-linear-gradient(top, $color, darken($color, $amount))
+  .commits
+    .commit
+      background: darken($color, $amount)
+
+section.failure
+  @include section($red)
+
+section.success
+  @include section($green)
+
+.job, .commits
+  margin: 0 30px
+
+.job
+  font-size: 3em
+  text-shadow: $black 2px 1px 0
+  .number, .status
+    font-weight: bold
+  .number, .name
+    margin-right: 25px
+  .name
+    color: darken($white, $amount)
+  .status
+    text-transform: uppercase
+
+.commits
+  .commit
+    font-size: 1.5em
+    text-shadow: $black 1px 1px 0
+    border-radius: 6px
+    margin-top: 30px
+    padding: 5px 10px
+    .author
+      font-weight: bold
+    .hash, .author
+      margin-right: 15px
+    .hash, .message
+      color: darken($white, $amount)
