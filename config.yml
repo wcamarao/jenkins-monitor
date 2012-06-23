@@ -1,0 +1,6 @@
+jenkins:
+  url: http://jenkins.rfiserve.net
+
+jobs:
+  - ui.apollo-gerrit
+  - ui.fuel-gerrit
