@@ -21,7 +21,14 @@ end
 
 get '/:job' do
   respond_to do |content|
+    content.html { @job = params[:job]; slim :job }
     content.json { fetch(params[:job]).to_json }
+  end
+end
+
+get '/:job/:number' do
+  respond_to do |content|
+    content.json { fetch(params[:job], params[:number]).to_json }
   end
 end
 
@@ -50,7 +57,7 @@ end
 def job_result name, number
   url = config[:jenkins][:url]
   job = get_json "#{url}/job/#{name}/#{number}/api/json"
-  job[:result].downcase
+  job[:result].nil? ? job_result(name, number - 1) : job[:result].downcase
 end
 
 def commits job

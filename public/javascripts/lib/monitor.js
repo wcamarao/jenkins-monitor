@@ -1,20 +1,14 @@
-$(document).ready(function () {
+var monitor = {};
 
-  $.get('/jobs.json', function (jobs) {
-    $(jobs).each(function (i, jobName) {
-      var job = new Job({ job: { name: jobName }});
-      $('body').append(job.element);
-    });
-  });
+(function () {
+  monitor.Job = Job;
+  monitor.Commit = Commit;
 
   function Job(attributes) {
-    this.element = $(this.template);
+    this.element = $(this.template());
     this.update(attributes);
     this.keep(this.fetch);
   }
-
-  Job.prototype.body = $('body');
-  Job.prototype.template = $('#job-template').html();
 
   Job.prototype.keep = function(callback) {
     setInterval(callback.bind(this), 5000);
@@ -32,15 +26,21 @@ $(document).ready(function () {
   };
 
   Job.prototype.updateAttributes = function(attributes) {
+    this.lastStatus = this.get('status');
     for (attr in attributes) {
-      this.element.find('.job .' + attr).html(attributes[attr]);
+      this.set(attr, attributes[attr]);
+    }
+    if (attributes.building === 'building') {
+      this.set('status', attributes.building);
     }
     return this;
   };
 
   Job.prototype.updateClassNames = function(attributes) {
-    this.element.removeClass().addClass(attributes.building).addClass(attributes.status);
-    this.body.append(this.body.find('section').remove());
+    if (this.lastStatus !== this.get('status')) {
+      this.element.removeClass().addClass(attributes.building).addClass(attributes.status);
+      this.body().append(this.body().find('section').remove());
+    }
   };
 
   Job.prototype.updateCommits = function(commits) {
@@ -52,8 +52,20 @@ $(document).ready(function () {
     return this;
   };
 
+  Job.prototype.body = function() {
+    return $('body');
+  };
+
+  Job.prototype.template = function() {
+    return $('#job-template').html();
+  };
+
   Job.prototype.get = function(attr) {
-    return this.element.find('.' + attr).html();
+    return this.element.find('.job .' + attr).html();
+  };
+
+  Job.prototype.set = function(attr, val) {
+    this.element.find('.job .' + attr).html(val);
   };
 
   Job.prototype.url = function() {
@@ -61,16 +73,22 @@ $(document).ready(function () {
   };
 
   function Commit(attributes) {
-    this.element = $(this.template);
+    this.element = $(this.template());
     this.update(attributes);
   }
 
-  Commit.prototype.template = $('#commit-template').html();
-
   Commit.prototype.update = function(attributes) {
     for (attr in attributes) {
-      this.element.find('.' + attr).html(attributes[attr]);
+      this.set(attr, attributes[attr]);
     }
     return this;
   };
-});
+
+  Commit.prototype.template = function() {
+    return $('#commit-template').html();
+  };
+
+  Commit.prototype.set = function(attr, val) {
+    this.element.find('.' + attr).html(val);
+  }
+})();

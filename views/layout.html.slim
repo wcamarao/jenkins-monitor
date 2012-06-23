@@ -3,9 +3,11 @@ html
   head
     title Build Monitor
     link type='text/css' rel='stylesheet' href='/stylesheets/monitor.css'
-    script type='text/javascript' src='/javascripts/jquery.min.js'
-    script type='text/javascript' src='/javascripts/monitor.js'
+    script type='text/javascript' src='/javascripts/vendor/jquery.min.js'
+    script type='text/javascript' src='/javascripts/lib/monitor.js'
+    == yield_content :head
   body
+    == yield
     script id='job-template' type='text/template'
       section
         .job
