@@ -4,3 +4,7 @@ jenkins:
 jobs:
   - ui.apollo-gerrit
   - ui.fuel-gerrit
+  - server.db-gerrit
+  - server.rfi-gerrit
+  - server.util-gerrit
+  - server.jobs-gerrit

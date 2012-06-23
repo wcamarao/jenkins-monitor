@@ -13,6 +13,7 @@ $(document).ready(function () {
     this.keep(this.fetch);
   }
 
+  Job.prototype.body = $('body');
   Job.prototype.template = $('#job-template').html();
 
   Job.prototype.keep = function(callback) {
@@ -38,7 +39,8 @@ $(document).ready(function () {
   };
 
   Job.prototype.updateClassNames = function(attributes) {
-    this.element.removeClass().addClass(attributes.status).addClass(attributes.building);
+    this.element.removeClass().addClass(attributes.building).addClass(attributes.status);
+    this.body.append(this.body.find('section').remove());
   };
 
   Job.prototype.updateCommits = function(commits) {
