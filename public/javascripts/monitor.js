@@ -25,16 +25,20 @@ $(document).ready(function () {
 
   Job.prototype.update = function(attributes) {
     this.updateAttributes(attributes.job);
+    this.updateClassNames(attributes.job);
     this.updateCommits(attributes.commits);
     return this;
   };
 
   Job.prototype.updateAttributes = function(attributes) {
-    this.element.addClass(attributes.status);
     for (attr in attributes) {
       this.element.find('.job .' + attr).html(attributes[attr]);
     }
     return this;
+  };
+
+  Job.prototype.updateClassNames = function(attributes) {
+    this.element.removeClass().addClass(attributes.status).addClass(attributes.building);
   };
 
   Job.prototype.updateCommits = function(commits) {

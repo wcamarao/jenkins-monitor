@@ -1,6 +1,7 @@
 $red: #C22222
-$green: #228B22
 $orange: #FF8300
+$green: #228B22
+$grey: #343434
 $white: #DDD
 $black: #111
 $amount: 10%
@@ -24,35 +25,60 @@ section
   float: left
   border: 2px solid $black
   margin: -2px
-  padding: 100px 0
+  padding: 80px 0
   width: 50%
   span.status
     float: right
 
-section.building
-  background-color: $orange
-  -webkit-animation: building_animation 1s infinite
-
-@-webkit-keyframes building_animation
-  0%
-    background-color: darken($orange, $amount)
-  50%
-    background-color: $orange
-  100%
-    background-color: darken($orange, $amount)
-
 @mixin section($color)
-  background-color: $color
-  background-image: -webkit-linear-gradient(top, $color, darken($color, $amount))
+  background: -webkit-linear-gradient(top, $color, darken($color, $amount))
   .commits
     .commit
       background: darken($color, $amount)
 
+@mixin animation($color, $amount)
+  0%
+    background: darken($color, $amount)
+  50%
+    background: $color
+  100%
+    background: darken($color, $amount)
+
+@-webkit-keyframes failure_animation
+  @include animation($red)
+
+@-webkit-keyframes unstable_animation
+  @include animation($orange)
+
+@-webkit-keyframes success_animation
+  @include animation($green, $amount / 2)
+
+@-webkit-keyframes aborted_animation
+  @include animation($grey, $amount / 2)
+
 section.failure
   @include section($red)
 
+section.unstable
+  @include section($orange)
+
 section.success
   @include section($green)
+
+section.aborted
+  @include section($grey)
+
+section.failure.building
+  -webkit-animation: failure_animation 1s infinite
+
+section.unstable.building
+  -webkit-animation: unstable_animation 1s infinite
+
+section.success.building
+  -webkit-animation: success_animation 1s infinite
+
+section.aborted.building
+  -webkit-animation: aborted_animation 1s infinite
 
 .job, .commits
   margin: 0 30px
