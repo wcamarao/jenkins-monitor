@@ -1,0 +1,14 @@
+- content_for :stylesheets do
+  link type='text/css' rel='stylesheet' href='/stylesheets/show.css'
+
+- content_for :javascripts do
+  script type='text/javascript' src='/javascripts/lib/queue.js'
+  script type='text/javascript' src='/javascripts/tie/show.js'
+
+- content_for :body do
+  input id='job' value=@job type='hidden'
+
+  .center
+    h1=@job
+
+    section.failure wip

@@ -2,22 +2,10 @@ doctype html
 html
   head
     title Build Monitor
-    link type='text/css' rel='stylesheet' href='/stylesheets/monitor.css'
+    link type='text/css' rel='stylesheet' href='/stylesheets/layout.css'
+    == yield_content :stylesheets
     script type='text/javascript' src='/javascripts/vendor/jquery.min.js'
     script type='text/javascript' src='/javascripts/lib/monitor.js'
-    == yield_content :head
+    == yield_content :javascripts
   body
-    == yield
-    script id='job-template' type='text/template'
-      section
-        .job
-          span.number
-            img src='/images/loading.gif'
-          span.name
-          span.status &nbsp;
-        .commits
-    script id='commit-template' type='text/template'
-      .commit
-        span.hash
-        span.author
-        span.message
+    == yield_content :body

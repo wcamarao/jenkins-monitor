@@ -1,0 +1,21 @@
+$red: #C22222
+$orange: #FF8300
+$green: #228B22
+$grey: #343434
+$white: #DDD
+$black: #111
+$amount: 10%
+
+@mixin section($color, $base: .7)
+  background: -webkit-linear-gradient(top, $color, darken($color, $amount))
+  .commits
+    .commit
+      background: darken($color, $amount / $base)
+
+@mixin animation($color, $base: 1)
+  0%
+    background: darken($color, $amount / $base)
+  50%
+    background: $color
+  100%
+    background: darken($color, $amount / $base)

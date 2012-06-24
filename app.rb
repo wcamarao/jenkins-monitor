@@ -1,16 +1,20 @@
 Bundler.require
 
+class SassHandler < Sinatra::Base
+  set :views, File.dirname(__FILE__) + '/public/stylesheets'
+  get '/stylesheets/:name' do
+    sass params[:name].to_sym
+  end
+end
+
 configure do
+  use SassHandler
   Sinatra::Application.register Sinatra::RespondTo
   set :port, 3333
 end
 
 get '/' do
   slim :index
-end
-
-get '/stylesheets/monitor' do
-  sass :monitor
 end
 
 get '/jobs' do
@@ -21,7 +25,7 @@ end
 
 get '/:job' do
   respond_to do |content|
-    content.html { @job = params[:job]; slim :job }
+    content.html { @job = params[:job]; slim :show }
     content.json { fetch(params[:job]).to_json }
   end
 end
@@ -78,12 +82,12 @@ def first_cause job
   found[:causes].first[:shortDescription]
 end
 
-def config
-  sym_keys YAML::load File.open 'config.yml'
-end
-
 def get_json url
   sym_keys JSON.parse open(url).read
+end
+
+def config
+  sym_keys YAML::load File.open 'config.yml'
 end
 
 def sym_keys hash

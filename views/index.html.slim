@@ -1,2 +1,23 @@
-- content_for :head do
+- content_for :stylesheets do
+  link type='text/css' rel='stylesheet' href='/stylesheets/index.css'
+
+- content_for :javascripts do
+  script type='text/javascript' src='/javascripts/lib/job.js'
+  script type='text/javascript' src='/javascripts/lib/commit.js'
   script type='text/javascript' src='/javascripts/tie/index.js'
+
+- content_for :body do
+  script id='job-template' type='text/template'
+    section
+      .job
+        span.number
+          img src='/images/loading.gif'
+        span.name
+        span.status &nbsp;
+      .commits
+
+  script id='commit-template' type='text/template'
+    .commit
+      span.hash
+      span.author
+      span.message

@@ -1,0 +1,52 @@
+@import 'mixins.css.sass'
+
+@font-face
+  font-family: 'Cantarell'
+  font-style: normal
+  font-weight: normal
+  src: local('Cantarell Regular'), local('Cantarell-Regular'), url('/fonts/Cantarell.woff') format('woff')
+
+*
+  font-family: 'Cantarell', sans-serif
+  outline: none
+
+body
+  background: $black
+  color: $white
+  margin: 0
+
+section.failure
+  @include section($red, .6)
+
+section.unstable
+  @include section($orange, .6)
+
+section.success
+  @include section($green)
+
+section.aborted
+  @include section($grey)
+
+section.building.failure
+  -webkit-animation: failure_animation 1s infinite
+
+section.building.unstable
+  -webkit-animation: unstable_animation 1s infinite
+
+section.building.success
+  -webkit-animation: success_animation 1s infinite
+
+section.building.aborted
+  -webkit-animation: aborted_animation 1s infinite
+
+@-webkit-keyframes failure_animation
+  @include animation($red)
+
+@-webkit-keyframes unstable_animation
+  @include animation($orange)
+
+@-webkit-keyframes success_animation
+  @include animation($green, 1.3)
+
+@-webkit-keyframes aborted_animation
+  @include animation($grey, 1.3)

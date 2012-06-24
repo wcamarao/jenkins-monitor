@@ -1,0 +1,41 @@
+@import 'mixins.css.sass'
+
+section
+  float: left
+  border: 2px solid $black
+  margin: -2px
+  padding: 75px 0
+  width: 50%
+  span.status
+    float: right
+
+.job, .commits
+  margin: 0 30px
+
+.job
+  font-size: 50px
+  text-shadow: $black 2px 1px 0
+  .number, .status
+    font-weight: bold
+  .number, .name
+    margin-right: 30px
+  .name
+    color: darken($white, $amount)
+  .status
+    text-transform: uppercase
+  .number img
+    margin-bottom: -3px
+
+.commits
+  .commit
+    font-size: 25px
+    text-shadow: $black 1px 1px 0
+    border-radius: 6px
+    margin-top: 30px
+    padding: 15px
+    .author
+      font-weight: bold
+    .hash, .author
+      margin-right: 15px
+    .hash, .message
+      color: darken($white, $amount)
