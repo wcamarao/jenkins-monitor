@@ -11,4 +11,7 @@ class monitor.Commit
     return $('#commit-template').html()
 
   set: (attr, val) ->
-    @element.find(".#{attr}").html(val)
+    if val?
+      @element.find(".#{attr}").html(val).show()
+    else
+      @element.find(".#{attr}").html('').hide()

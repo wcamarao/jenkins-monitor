@@ -48,7 +48,7 @@ private
 
 def fetch name, number = nil
   url = config[:jenkins][:url]
-  number = last_job_number name if number.nil?
+  number = (number || last_job_number(name)).to_i
   job = get_json "#{url}/job/#{name}/#{number}/api/json"
   return {
     :job => {

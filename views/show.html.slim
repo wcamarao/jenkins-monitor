@@ -6,9 +6,6 @@
   script type='text/javascript' src='/javascripts/tie/show.js'
 
 - content_for :body do
+  h1.title=@job
+  img#loading src='/images/loading.gif'
   input id='job' value=@job type='hidden'
-
-  .center
-    h1=@job
-
-    section.failure wip

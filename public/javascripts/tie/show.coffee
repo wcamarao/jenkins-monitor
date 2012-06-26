@@ -1,3 +1,3 @@
 $(document).ready ->
   jobName = $('#job').val()
-  console.log jobName
+  queue = new monitor.Queue jobName

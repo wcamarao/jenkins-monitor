@@ -6,6 +6,23 @@ html
     == yield_content :stylesheets
     script type='text/javascript' src='/third-party/jquery.min.js'
     script type='text/javascript' src='/javascripts/lib/monitor.js'
+    script type='text/javascript' src='/javascripts/lib/job.js'
+    script type='text/javascript' src='/javascripts/lib/commit.js'
     == yield_content :javascripts
   body
     == yield_content :body
+
+    script id='job-template' type='text/template'
+      section
+        .job
+          span.number
+            img.loading src='/images/loading.gif'
+          span.name
+          span.status &nbsp;
+        .commits
+
+    script id='commit-template' type='text/template'
+      .commit
+        span.hash
+        span.author
+        span.message
