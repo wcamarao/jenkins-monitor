@@ -22,6 +22,7 @@ configure do
 end
 
 get '/' do
+  @update_interval = config[:update_interval]
   slim :index
 end
 
@@ -33,7 +34,12 @@ end
 
 get '/:job' do
   respond_to do |content|
-    content.html { @job = params[:job]; slim :show }
+    content.html do
+      @job = params[:job]
+      @update_interval = config[:update_interval]
+      @queue_size = config[:queue_size]
+      slim :show
+    end
     content.json { fetch(params[:job]).to_json }
   end
 end
@@ -54,7 +60,8 @@ def fetch name, number = nil
     :job => {
       :number => job[:number],
       :status => job[:result].nil? ? job_result(name, number - 1) : job[:result].downcase,
-      :building => job[:building] ? 'building' : ''
+      :building => job[:building] ? 'building' : '',
+      :url => job[:url]
     },
     :commits => commits(job)
   }

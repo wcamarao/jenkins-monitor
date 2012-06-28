@@ -1,11 +1,13 @@
 class monitor.Job
   constructor: (attributes) ->
+    @updateInterval = parseInt $('#update-interval').val()
     @element = $(@template())
-    @update(attributes)
+    @update attributes
+    @element.attr 'data-url', @url('html')
     @keepFetching()
 
   keepFetching: ->
-    setInterval @fetch.bind(this), 5000
+    setInterval @fetch.bind(this), @updateInterval
 
   fetch: ->
     $.get @url(), @update.bind(this)
@@ -14,10 +16,6 @@ class monitor.Job
     @updateAttributes attributes.job
     @updateClassNames attributes.job
     @updateCommits attributes.commits
-    @updateCallback?()
-
-  onUpdate: (callback) ->
-    @updateCallback = callback
 
   updateAttributes: (attributes) ->
     return unless attributes?
@@ -30,7 +28,7 @@ class monitor.Job
   updateClassNames: (attributes) ->
     if attributes? && @lastStatus != @get 'status'
       @element.removeClass().addClass(attributes.building).addClass attributes.status
-      @body().append(@body().find('section').remove())
+      @body().append @body().find('section').remove()
 
   updateCommits: (commits) ->
     return unless commits?
@@ -51,6 +49,5 @@ class monitor.Job
   set: (attr, val) ->
     @element.find(".job .#{attr}").html(val)
 
-  url: ->
-    numberPath = if @number then "/#{@number}" else ''
-    "/#{@get('name') + numberPath}.json"
+  url: (format) ->
+    "/#{@get('name')}.#{format||'json'}"

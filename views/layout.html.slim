@@ -10,6 +10,7 @@ html
     script type='text/javascript' src='/javascripts/lib/commit.js'
     == yield_content :javascripts
   body
+    input id='update-interval' value=@update_interval type='hidden'
     == yield_content :body
 
     script id='job-template' type='text/template'

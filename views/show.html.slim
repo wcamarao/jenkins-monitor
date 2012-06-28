@@ -3,9 +3,11 @@
 
 - content_for :javascripts do
   script type='text/javascript' src='/javascripts/lib/queue.js'
+  script type='text/javascript' src='/javascripts/lib/queue-job.js'
   script type='text/javascript' src='/javascripts/tie/show.js'
 
 - content_for :body do
   h1.title=@job
   img#loading src='/images/loading.gif'
   input id='job' value=@job type='hidden'
+  input id='queue-size' value=@queue_size type='hidden'
