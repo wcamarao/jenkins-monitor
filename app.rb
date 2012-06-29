@@ -88,7 +88,7 @@ def commits job
       :message => item[:msg]
     })
   end
-  commits.push({ :message => first_cause(job) }) if commits.empty?
+  commits.push({ :hash => nil, :author => nil, :message => first_cause(job) }) if commits.empty?
   commits
 end
 
