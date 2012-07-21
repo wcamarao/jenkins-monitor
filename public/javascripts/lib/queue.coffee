@@ -22,20 +22,17 @@ class monitor.Queue
   
   push: (number) ->
     job = new monitor.QueueJob(job: name: "#{@jobName}/#{number}")
-    job.element.hide()
-    job.onFirstUpdate -> job.element.show()
     @jobs.push job
-    return @appendFirst(job) if @sections().size() == 0
-    @appendNext(job)
+    if @sections().size() == 0 then @appendFirst(job) else @appendNext(job)
 
   appendFirst: (job) ->
     $('body').append job.element
     job.onFirstUpdate -> $('#loading').remove()
 
   appendNext: (job) ->
-    sections = @sections()
-    sections.first().before job.element
-    @remove(@jobs[0]) if @jobs.size() > @size
+    job.onFirstUpdate =>
+      @sections().first().before job.element
+      @remove(@jobs[0]) if @jobs.size() > @size
 
   remove: (job) ->
     @jobs.splice $.inArray(job, @jobs), 1

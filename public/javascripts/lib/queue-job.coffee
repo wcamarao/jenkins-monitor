@@ -9,6 +9,7 @@ class monitor.QueueJob extends monitor.Job
   update: (attributes) ->
     super attributes
     @element.attr 'data-url', attributes.job.url
+    clearInterval @intervalId if @get('status') != 'building'
     callback() for callback in @firstUpdateCallbacks
     @firstUpdateCallbacks.length = 0
 
