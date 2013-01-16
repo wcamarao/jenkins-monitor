@@ -1,6 +1,6 @@
 get '/' do
   @update_interval = config[:jenkins][:update_interval]
-  slim :index
+  slim :dashboard
 end
 
 get '/jobs' do
