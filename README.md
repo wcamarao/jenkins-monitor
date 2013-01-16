@@ -1,1 +1,0 @@
-<img src="https://raw.github.com/functioncallback/build-monitor/master/shot.png">
