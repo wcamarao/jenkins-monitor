@@ -1,11 +1,12 @@
-update_interval: 5000
-queue_size: 8
-
 jenkins:
+  update_interval: 5000
   url: http://jenkins
+  jobs:
+    - foo
+    - bar
 
-jobs:
-  - list
-  - of
-  - job
-  - names
+jira:
+  update_interval: 60000
+  url: https://jira.com
+  login: foo
+  password: bar
