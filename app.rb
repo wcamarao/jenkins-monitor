@@ -1,5 +1,8 @@
 Bundler.require
 
+require 'sinatra/content_for'
+require 'open-uri'
+
 class SassHandler < Sinatra::Base
   set :views, File.dirname(__FILE__) + '/public/stylesheets'
   get '/stylesheets/*.css' do
