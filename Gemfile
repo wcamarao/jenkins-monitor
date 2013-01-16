@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source :rubygems
 
 gem 'json'
 gem 'slim'
@@ -8,5 +8,5 @@ gem 'sinatra'
 gem 'sinatra-reloader'
 gem 'sinatra-respond_to'
 
-require 'sinatra/content_for'
-require 'open-uri'
+#require 'sinatra/content_for'
+#require 'open-uri'
