@@ -1,0 +1,71 @@
+@import 'mixins'
+
+#jenkins
+  font-size: 20px
+  position: absolute
+  text-shadow: $black 1px 1px 0
+  width: 50%
+
+  section
+    position: relative
+
+    .left
+      position: absolute
+      left: 15px
+      top: 10px
+
+    .right
+      position: absolute
+      top: 22px
+      left: 175px
+
+    .job
+
+      .name
+        color: $black
+        font-weight: bold
+        text-shadow: none
+
+    .user
+      font-weight: bold
+
+    .message
+      background: darken($green, 10%)
+      border-radius: 3px
+      padding: 3px 8px 5px 8px
+
+  section.failure
+    @include section($red, .6)
+
+  section.unstable
+    @include section($orange, .6)
+
+  section.success
+    @include section($green)
+
+  section.aborted
+    @include section($grey)
+
+  section.building.failure
+    -webkit-animation: jenkins_failure_animation 1s infinite
+
+  section.building.unstable
+    -webkit-animation: jenkins_unstable_animation 1s infinite
+
+  section.building.success
+    -webkit-animation: jenkins_success_animation 1s infinite
+
+  section.building.aborted
+    -webkit-animation: jenkins_aborted_animation 1s infinite
+
+@-webkit-keyframes jenkins_failure_animation
+  @include animation($red)
+
+@-webkit-keyframes jenkins_unstable_animation
+  @include animation($orange)
+
+@-webkit-keyframes jenkins_success_animation
+  @include animation($green, 1.3)
+
+@-webkit-keyframes jenkins_aborted_animation
+  @include animation($grey, 1.3)

@@ -1,3 +1,13 @@
+def fetch_jobs name
+  jobs = []
+  url = config[:jenkins][:url]
+  numbers = get_json("#{url}/job/#{name}//api/json")[:builds].map { |b| b[:number] }
+  numbers[0..9].each do |number|
+    jobs.push fetch(name, number)
+  end
+  jobs
+end
+
 def fetch name, number = nil
   url = config[:jenkins][:url]
   number = (number || last_job_number(name)).to_i
@@ -29,12 +39,11 @@ def commits job
   commits = []
   job[:changeSet][:items].each do |item|
     commits.push({
-      :hash => item[:id][0..6],
       :author => item[:author][:fullName].split.first.downcase,
       :message => item[:msg]
     })
   end
-  commits.push({ :hash => nil, :author => nil, :message => first_cause(job) }) if commits.empty?
+  commits.push({ :author => nil, :message => first_cause(job) }) if commits.empty?
   commits
 end
 

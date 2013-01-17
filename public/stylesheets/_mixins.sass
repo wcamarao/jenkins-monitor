@@ -8,9 +8,6 @@ $amount: 10%
 
 @mixin section($color, $base: .7)
   background: -webkit-linear-gradient(top, $color, darken($color, $amount))
-  .commits
-    .commit
-      background: darken($color, $amount / $base)
 
 @mixin animation($color, $base: 1)
   0%
@@ -19,3 +16,10 @@ $amount: 10%
     background: $color
   100%
     background: darken($color, $amount / $base)
+
+.tmp
+  text-shadow: $black 2px 1px 0
+  text-shadow: $black 1px 1px 0
+  text-transform: uppercase
+  color: darken($white, $amount)
+  color: darken($white, $amount * 2)
