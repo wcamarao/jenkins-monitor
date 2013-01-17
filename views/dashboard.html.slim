@@ -17,16 +17,20 @@ html
     script type='text/javascript' src='/javascripts/jira.js'
 
   body
-    #jenkins(data-update-interval="#{@config[:jenkins_update_interval]}")
-    #jira(data-update-interval="#{@config[:jira_update_interval]}")
+    #jenkins
+      #jobs
 
-    script id='job-template' type='text/html'
-      section class="${status}"
-        .left
-          .job
-            span.name ${job}
-            span=" "
-            span.number ${number}
-          .user ${user}
-        .right
-          .message ${message}
+      script id='job-template' type='text/html'
+        a(href="{{url}}" target='_blank')
+          section class="{{status}} {{building}}"
+            .left
+              .job
+                span.name {{name}}
+                span=" "
+                span.number {{number}}
+              .author {{author}}
+            .right
+              .message {{message}}
+
+    #jira
+      #jiras

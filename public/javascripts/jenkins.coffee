@@ -1,16 +1,21 @@
 # Job Model
 
 class App.Job extends Backbone.Model
+  initialize: ->
+    @set 'name', @get('name').replace(/ui\.|-gerrit/g, '')
 
 # Jobs Collection
 
 class App.Jobs extends Backbone.Collection
   model: App.Job
 
+  amount: =>
+    $(window).outerHeight() / 80
+
   keepFetching: =>
-    $.get '/jobs.json', (jobs) =>
+    $.get "/jobs/amount/#{@amount()}.json", (jobs) =>
       @reset(jobs)
-      setTimeout(@keepFetching.bind(this), @updateInterval)
+      setTimeout(@keepFetching.bind(this), App.config.jenkins_update_interval)
 
 # Jobs View
 
@@ -18,10 +23,11 @@ class App.JobsView extends Backbone.View
   el: '#jenkins'
 
   initialize: =>
-    @collection.updateInterval = @$el.data('update-interval')
+    @template = @$el.find('#job-template').html()
+    @template = "{{#jobs}} #{@template} {{/jobs}}"
+    @collection.on 'reset', @render
     @collection.keepFetching()
-    @collection.on 'reset', (jobs) =>
 
-# Job View
-
-class App.JobView extends Backbone.View
+  render: (jobs) =>
+    jobsAttributes = jobs: jobs.toArray().map (job) -> job.attributes
+    @$el.html Mustache.render @template, jobsAttributes

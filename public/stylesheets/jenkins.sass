@@ -1,32 +1,37 @@
 @import 'mixins'
 
 #jenkins
-  font-size: 20px
+  font-size: 25px
   position: absolute
   text-shadow: $black 1px 1px 0
   width: 50%
 
+  a
+    color: $white
+
   section
     position: relative
+
+    &:hover
+      opacity: .9
 
     .left
       position: absolute
       left: 15px
-      top: 10px
+      top: 3px
 
     .right
       position: absolute
-      top: 22px
-      left: 175px
+      top: 18px
+      left: 200px
 
     .job
-
       .name
         color: $black
         font-weight: bold
         text-shadow: none
 
-    .user
+    .author
       font-weight: bold
 
     .message
