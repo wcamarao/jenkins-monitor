@@ -1,5 +1,5 @@
-class Issue extends Backbone.Model
+class App.Issue extends Backbone.Model
 
-class IssueListView extends Backbone.View
+class App.Issues extends Backbone.Collection
 
-class IssueView extends Backbone.View
+class App.IssuesView extends Backbone.View

@@ -27,7 +27,8 @@ class App.JobsView extends Backbone.View
     @template = "{{#jobs}} #{@template} {{/jobs}}"
     @collection.on 'reset', @render
     @collection.keepFetching()
+    @$jobs = @$el.find('#jobs')
 
   render: (jobs) =>
     jobsAttributes = jobs: jobs.toArray().map (job) -> job.attributes
-    @$el.html Mustache.render @template, jobsAttributes
+    @$jobs.html Mustache.render @template, jobsAttributes
