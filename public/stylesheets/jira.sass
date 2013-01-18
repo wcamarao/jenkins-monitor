@@ -1,6 +1,42 @@
 @import 'mixins'
 
 #jira
+  font-size: 21px
   position: absolute
   right: 0
+  text-shadow: $black 1px 1px 0
   width: 50%
+
+  a
+    color: $white
+
+  section
+    @include section_color($blue, .6)
+    position: relative
+
+    &:hover
+      opacity: .9
+
+    .left
+      position: absolute
+      left: 15px
+      top: 10px
+
+    .right
+      position: absolute
+      top: 22px
+      left: 200px
+
+    .issue
+      .key
+        color: $black
+        font-weight: bold
+        text-shadow: none
+
+    .create_time
+      font-weight: bold
+
+    .summary
+      background: darken($blue, 20%)
+      border-radius: 3px
+      padding: 3px 8px 5px 8px

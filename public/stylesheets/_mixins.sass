@@ -1,3 +1,4 @@
+$blue: #2222C2
 $red: #C22222
 $orange: #FF8300
 $green: #228B22
@@ -6,8 +7,12 @@ $white: #DDD
 $black: #111
 $amount: 10%
 
-@mixin section($color, $base: .7)
+@mixin section_color($color, $base: .7)
   background: -webkit-linear-gradient(top, $color, darken($color, $amount))
+
+  .message
+    background: darken($color, $amount / $base)
+
 
 @mixin animation($color, $base: 1)
   0%
@@ -16,10 +21,3 @@ $amount: 10%
     background: $color
   100%
     background: darken($color, $amount / $base)
-
-.tmp
-  text-shadow: $black 2px 1px 0
-  text-shadow: $black 1px 1px 0
-  text-transform: uppercase
-  color: darken($white, $amount)
-  color: darken($white, $amount * 2)

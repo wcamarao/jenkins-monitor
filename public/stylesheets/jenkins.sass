@@ -1,7 +1,7 @@
 @import 'mixins'
 
 #jenkins
-  font-size: 25px
+  font-size: 21px
   position: absolute
   text-shadow: $black 1px 1px 0
   width: 50%
@@ -18,11 +18,11 @@
     .left
       position: absolute
       left: 15px
-      top: 3px
+      top: 10px
 
     .right
       position: absolute
-      top: 18px
+      top: 22px
       left: 200px
 
     .job
@@ -35,21 +35,20 @@
       font-weight: bold
 
     .message
-      background: darken($green, 10%)
       border-radius: 3px
       padding: 3px 8px 5px 8px
 
   section.failure
-    @include section($red, .6)
+    @include section_color($red, .6)
 
   section.unstable
-    @include section($orange, .6)
+    @include section_color($orange, .6)
 
   section.success
-    @include section($green)
+    @include section_color($green)
 
   section.aborted
-    @include section($grey)
+    @include section_color($grey)
 
   section.building.failure
     -webkit-animation: jenkins_failure_animation 1s infinite

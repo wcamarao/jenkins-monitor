@@ -10,8 +10,10 @@
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.3.3, RVM: ruby-1.9.2-p290 [build-monitor]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="eventmachine (v0.12.10, RVM: ruby-1.9.2-p290 [build-monitor]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v1.4.0, RVM: ruby-1.9.2-p290 [build-monitor]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="handsoap (v1.1.8, RVM: ruby-1.9.2-p290 [build-monitor]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v1.7.3, RVM: ruby-1.9.2-p290 [build-monitor]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.3.6, RVM: ruby-1.9.2-p290 [build-monitor]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.5.6, RVM: ruby-1.9.2-p290 [build-monitor]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v1.4.1, RVM: ruby-1.9.2-p290 [build-monitor]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-protection (v1.2.0, RVM: ruby-1.9.2-p290 [build-monitor]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.1, RVM: ruby-1.9.2-p290 [build-monitor]) [gem]" level="application" />

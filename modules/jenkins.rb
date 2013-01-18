@@ -2,8 +2,8 @@ def fetch_recent(amount)
   jobs = []
   job_names = config[:jenkins][:jobs]
   job_names.each do |name|
-    floor = (amount / job_names.size).ceil
-    jobs.push(fetch_jobs(name, floor))
+    ceiling = (amount / job_names.size).ceil
+    jobs.push(fetch_jobs(name, ceiling))
   end
   jobs.flatten
 end
@@ -30,7 +30,7 @@ def fetch name, number = nil
     :building => job[:building] ? 'building' : '',
     :url => job[:url],
     :author => commits[0][:author],
-    :message => commits[0][:message]
+    :message => commits[0][:message][0..50]
   }
 end
 
