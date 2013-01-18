@@ -1,0 +1,14 @@
+
+----:---F1  *scratch*      All L1     (Fundamental)----------------------------------------------
+ jenkins:
+ update_interval: 5000
+ url: http://jenkins.rfiserve.net
+ jobs:
+   - ui.apollo-gerrit
+   - ui.fuel-gerrit
+
+jira:
+ update_interval: 60000
+ url: https://rocketfuel.jira.com
+ login: apiuser2
+ password: r0cketAPI
