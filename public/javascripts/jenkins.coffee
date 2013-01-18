@@ -30,5 +30,6 @@ class App.JobsView extends Backbone.View
     @$jobs = @$el.find('#jobs')
 
   render: (jobs) =>
+    return unless jobs?
     jobsAttributes = jobs: jobs.toArray().map (job) -> job.attributes
     @$jobs.html Mustache.render @template, jobsAttributes
