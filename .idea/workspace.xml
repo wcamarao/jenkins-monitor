@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af3dc0be-1bfe-4c5e-91f1-6bdb1815fcac" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/build-monitor.iml" afterPath="$PROJECT_DIR$/.idea/build-monitor.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.rb" afterPath="$PROJECT_DIR$/app.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jenkins.rb" afterPath="$PROJECT_DIR$/modules/jenkins.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jira.rb" afterPath="$PROJECT_DIR$/modules/jira.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/routes.rb" afterPath="$PROJECT_DIR$/modules/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/app.coffee" afterPath="$PROJECT_DIR$/public/javascripts/app.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jenkins.coffee" afterPath="$PROJECT_DIR$/public/javascripts/jenkins.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jira.coffee" afterPath="$PROJECT_DIR$/public/javascripts/jira.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/_mixins.sass" afterPath="$PROJECT_DIR$/public/stylesheets/_mixins.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/jenkins.sass" afterPath="$PROJECT_DIR$/public/stylesheets/jenkins.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/jira.sass" afterPath="$PROJECT_DIR$/public/stylesheets/jira.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/dashboard.html.slim" afterPath="$PROJECT_DIR$/views/dashboard.html.slim" />
     </list>
     <ignored path="build-monitor.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,7 +61,9 @@
         <entry file="file://$PROJECT_DIR$/public/javascripts/jira.coffee">
           <provider selected="true" editor-type-id="text-editor">
             <state line="11" column="50" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <marker date="1358546342000" expanded="true" signature="248:338" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,7 +71,7 @@
       <file leaf-file-name="jira.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/jira.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="36" selection-start="467" selection-end="467" vertical-scroll-proportion="0.3529412">
+            <state line="17" column="24" selection-start="431" selection-end="431" vertical-scroll-proportion="0.33333334">
               <folding />
             </state>
           </provider>
@@ -424,7 +413,9 @@
     <entry file="file://$PROJECT_DIR$/public/javascripts/jira.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="50" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <marker date="1358546342000" expanded="true" signature="248:338" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -486,7 +477,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/jira.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="36" selection-start="467" selection-end="467" vertical-scroll-proportion="0.3529412">
+        <state line="17" column="24" selection-start="431" selection-end="431" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>

@@ -15,9 +15,9 @@ def fetch_jiras(amount)
 
   @jira_service.issues_from_jql_search(jql, amount.to_i).map do |jira|
     {
-      :key => jira.key,
-      :summary => jira.summary[0..55],
-      :create_time => jira.create_time.strftime('%b %-d, %Y')
+        :key => jira.key,
+        :summary => jira.summary[0..55],
+        :create_time => jira.create_time.strftime('%b %-d, %Y')
     }
   end
 end
