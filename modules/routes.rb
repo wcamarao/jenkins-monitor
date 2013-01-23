@@ -16,3 +16,9 @@ get '/jobs/amount/:amount' do
     content.json { fetch_recent(params[:amount].to_i).to_json }
   end
 end
+
+get '/issues/amount/:amount' do
+  respond_to do |content|
+    content.json { fetch_jiras(params[:amount].to_i).to_json }
+  end
+end
