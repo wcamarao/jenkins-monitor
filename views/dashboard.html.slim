@@ -37,9 +37,11 @@ html
 
         script id='issue-template' type='text/html'
           a(href="{{url}}" target='_blank')
-            section
+            section class="{{issueType}}"
               .left
                 .key {{key}}
-                .create_time {{create_time}}
+                .assignee {{assignee}}
+                .create_time class="{{age}}" {{create_time}}
               .right
                 .summary {{summary}}
+                .issueType

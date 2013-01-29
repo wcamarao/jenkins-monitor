@@ -4,14 +4,13 @@
   font-size: 21px
   position: absolute
   right: 0
-  text-shadow: $black 1px 1px 0
   width: 50%
 
   a
-    color: $white
+    color: $grey
 
   section
-    @include section_color($blue, .6)
+    @include section_color(#ccc, .6)
     position: relative
 
     &:hover
@@ -20,11 +19,11 @@
     .left
       position: absolute
       left: 15px
-      top: 10px
+      top: 8px
 
     .right
       position: absolute
-      top: 22px
+      top: 30px
       left: 200px
 
     .issue
@@ -33,10 +32,23 @@
         font-weight: bold
         text-shadow: none
 
-    .create_time
+    .create_time.new
       font-weight: bold
+      color: lighten($grey, 20%)
+      text-shadow: none
+
+    .create_time.old
+      font-weight: bold
+      color:  $red
+      text-shadow: none
 
     .summary
-      background: darken($blue, 20%)
       border-radius: 3px
       padding: 3px 8px 5px 8px
+
+    .assignee
+      font-weight: bold
+
+  section.troubleTicket
+    @include section_color(lighten($red, 40%), .6)
+
