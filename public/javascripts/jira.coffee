@@ -4,7 +4,7 @@ class App.Issues extends Backbone.Collection
   model: App.Issue
 
   amount: =>
-    Math.ceil( $(window).outerHeight() / 80 )
+    Math.ceil( $(window).outerHeight() / 100 )
 
   keepFetching: =>
     $.get "/issues/amount/#{@amount()}.json", (issues) =>
